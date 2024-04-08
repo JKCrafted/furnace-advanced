@@ -1,9 +1,9 @@
-# Ether Furnace
-wismt texture tool
+# Ether Furnace - Advanced
+An advanced version of the wismt texture tool from 3096
 
 ## License
 
-    Ether Furnace
+    Ether Furnace - Advanced
     Copyright (C) 2022  3096
 
     This program is free software: you can redistribute it and/or modify
@@ -21,16 +21,58 @@ wismt texture tool
 
 ## Usage
 
-    go run main.go <in wismt> <texture dir> <out wismt>
-
-Under `<texture dir>` you would place your replacement texture files.
-
-You must format your texture file names with <u><id.name.dds></u> (e.g. `00.PC079404_WAIST.dds`). The id will be used to identify the texture it replaces.
+You must format your texture file names with <u><id.name.dds></u> (e.g. `00.PC079404_WAIST.dds`). The id will be used to identify the texture it replaces.\
 
 Along side the `wismt` file, you also need the `wimdo` file placed in the same directory. Both files need to be modified for the replaced textures to function correctly in game.
 
-You can also replace using raw files by placing them in `<texture dir>/raw` directory, with filenames formatted in <u><index.whatever></u>.
+    go run main.go <repalcement type>
 
-Example:
+### Single Item
 
-    go run main.go ./test/formats_testdata/wismt/pc079404.wismt ./test/commands_testdata/msrd-replaced-textures ./output.wismt
+The desired `.wismt` and `.wimdo` files for the item you want to edit should be in the `Input` folder.
+
+The desired changes should be placed in the `Replace` folder.
+
+    go run main.go
+
+### Multiple Items
+
+The desired `.wismt` and `.wimdo` files for the item you want to edit should be in a folder sharing their name (without a file extension) inside the `Input` folder.
+
+E.g. `Input/bl000101`
+
+The desired changes should be placed in a folder sharing the name of the files they will be inputted into (without a file extension) inside the `Replace` folder.
+
+E.g. `Replace/bl000101`
+
+    go run main.go mi
+
+### Multiple Versions
+
+The desired `.wismt` and `.wimdo` files for the item you want to edit should be in the `Input` folder.
+
+The desired changes should be put in a folder for each respective version, starting at `1` and going in assending order, inside the `Replace` folder. 
+
+E.g. `Replace/1`
+
+    go run main.go mv <amount of versions>
+
+### Multiple Versions of Multiple Items
+
+The desired `.wismt` and `.wimdo` files for the item you want to edit should be in a folder sharing their name (without a file extension) inside the `Input` folder.
+
+E.g. `Input/bl000101`
+
+The desired changes should be placed inside the `Replace` folder.
+
+E.g. `Replace/bl000101`
+
+The desired changes should be put  in a folder sharing the name of the files they will be inputted into (without a file extension), inside a folder for each respective version, starting at `1` and going in assending order, inside the `Replace` folder. 
+
+E.g. `Replace/1/bl000101`
+
+    go run main.go mvmi <amount of versions>
+    
+or
+
+    go run main.go mimv <amount of versions>
