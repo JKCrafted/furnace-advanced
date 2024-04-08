@@ -21,7 +21,7 @@ An advanced version of the wismt texture tool from 3096
 
 ## Usage
 
-You must format your texture file names with <u><id.name.dds></u> (e.g. `00.PC079404_WAIST.dds`). The id will be used to identify the texture it replaces.\
+You must format your texture file names with <u><id.name.dds></u> (e.g. `00.PC079404_WAIST.dds`). The id will be used to identify the texture it replaces.
 
 Along side the `wismt` file, you also need the `wimdo` file placed in the same directory. Both files need to be modified for the replaced textures to function correctly in game.
 
