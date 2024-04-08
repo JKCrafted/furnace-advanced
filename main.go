@@ -22,7 +22,7 @@ func multiItems() {
 		return
 	}
 	for _, file := range files {
-		if strings.Contains(file.Name(), ".") == false {
+		if !strings.Contains(file.Name(), ".") {
 			erra := commands.ReplaceTexturesInWismt("Input/"+file.Name()+"/"+file.Name()+".wismt", "Replace/"+file.Name(), "Output/"+file.Name()+"/"+file.Name()+".wismt")
 			if erra != nil {
 				os.MkdirAll("Output/"+file.Name(), os.ModePerm)
@@ -75,7 +75,7 @@ func multiVerItems() {
 				fmt.Println("Error:", err)
 			}
 			for _, file := range files {
-				if strings.Contains(file.Name(), ".") == false {
+				if !strings.Contains(file.Name(), ".") {
 					erra := commands.ReplaceTexturesInWismt("Input/"+file.Name()+"/"+file.Name()+".wismt", "Replace/"+strconv.Itoa(i)+"/"+file.Name(), "Output/"+strconv.Itoa(i)+"/"+file.Name()+"/"+file.Name()+".wismt")
 					if erra != nil {
 						os.MkdirAll("Output/"+strconv.Itoa(i)+"/"+file.Name(), os.ModePerm)
@@ -107,7 +107,7 @@ func singleItem() {
 	if erra != nil {
 		os.MkdirAll("Output", os.ModePerm)
 		erra := commands.ReplaceTexturesInWismt("Input/"+files[1].Name(), "Replace", "Output/"+files[1].Name())
-		if err != nil {
+		if erra != nil {
 			fmt.Println(erra)
 		}
 	}
